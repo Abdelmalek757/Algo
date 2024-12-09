@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char *ChargerChaine(int t) {
+    char *chaine = (char*)malloc(t+1); 
+    printf("donner saisir la chaine:\n");
+    fgets(chaine, t, stdin);
+    chaine[strcspn(chaine, "\n")] = '\0'; 
+    return chaine;
+}
+
+int Longueur(char *ch) {
+    return strlen(ch);
+}
+
+void ChargerTab(char *p, char Tableau[]) {
+    strcpy(Tab, p);
+}
+
+void InverserTableau(char Tabeau[], char T[], int l) {
+    for (int i = 0; i < l; i++) {
+        T[i] = Tableau[l -i-1];
+    }
+}
+
+void AfficherTableau(char Tableau[],  int l) {
+    for (int i = 0; i < l; i++) {
+        printf("%c", Tableau[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n;
+    printf("Veuillez saisir la taille maximale de la chaine:\n");
+    scanf("%d", &n);
+    char *ch = ChargerChaine(n);
+    int l = Longueur(ch);
+    char Tableau[l], T[l];
+    ChargerTab(ch, Tab);
+    printf("La chaine originale: \n");
+    AfficherTableau(Tableau, m);
+    InverserTableau(Tableau, l, m);
+    printf("La chaine inversée:\n");
+    AfficherTableau(T, l);
+    free(ch);
+    return 0;
+}
